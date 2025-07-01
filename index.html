@@ -14,6 +14,123 @@
     <link rel="icon" type="image/png" href="image/LaftIcon.png">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .btn.paid-cta-btn {
+            background: linear-gradient(90deg, var(--color-magenta), var(--color-magenta-light));
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            box-shadow: 0 0 16px 4px rgba(255,0,255,0.25), 0 2px 10px rgba(255,0,255,0.13);
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: box-shadow 0.3s, transform 0.2s;
+            animation: paid-glow 2s infinite alternate;
+        }
+        .btn.paid-cta-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,0,255,0.25) 0%, rgba(255,0,255,0.05) 80%, transparent 100%);
+            z-index: -1;
+            filter: blur(8px);
+            opacity: 0.7;
+            pointer-events: none;
+            animation: paid-glow-bg 2.5s infinite alternate;
+        }
+        @keyframes paid-glow {
+            0% { box-shadow: 0 0 16px 4px rgba(255,0,255,0.25), 0 2px 10px rgba(255,0,255,0.13); }
+            100% { box-shadow: 0 0 32px 8px rgba(255,0,255,0.45), 0 4px 20px rgba(255,0,255,0.18); }
+        }
+        @keyframes paid-glow-bg {
+            0% { opacity: 0.7; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.08); }
+        }
+        .btn.paid-cta-btn:hover, .btn.paid-cta-btn:focus {
+            background: linear-gradient(90deg, var(--color-magenta-light), var(--color-magenta));
+            color: #fff;
+            transform: scale(1.05) rotate(-1deg);
+            box-shadow: 0 0 40px 12px rgba(255,0,255,0.45), 0 6px 24px rgba(255,0,255,0.22);
+        }
+        .paid-chat-notify-card {
+            position: fixed;
+            left: 2.5vw;
+            bottom: 2.5vh;
+            min-width: 260px;
+            max-width: 360px;
+            background: linear-gradient(135deg, var(--color-accent) 80%, var(--color-magenta-light) 100%);
+            border-radius: 14px;
+            border: 2px solid var(--color-magenta-light);
+            box-shadow: 0 8px 32px 4px rgba(255,0,255,0.18), 0 2px 10px rgba(255,0,255,0.10);
+            padding: 1.1rem 1.5rem 1.1rem 1.2rem;
+            z-index: 9999;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.5s, transform 0.5s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+        }
+        .paid-chat-notify-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .paid-chat-message {
+            background: rgba(255,0,255,0.10);
+            border-radius: 10px;
+            padding: 0.7rem 1.1rem;
+            color: #fff;
+            font-size: 1.12rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 6px rgba(255,0,255,0.06);
+            gap: 0.7rem;
+        }
+        .paid-chat-icon {
+            color: var(--color-magenta-light);
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .paid-chat-username {
+            color: var(--color-magenta-light);
+            font-weight: bold;
+            margin-right: 0.7rem;
+            font-family: inherit;
+        }
+        .paid-chat-action {
+            color: #ccc;
+            font-size: 0.98rem;
+            font-family: inherit;
+        }
+        .paid-chat-amount {
+            color: var(--color-magenta-light);
+            font-weight: bold;
+            margin-left: 0.3rem;
+            font-size: 0.98rem;
+        }
+        @media (max-width: 600px) {
+            .paid-chat-notify-card {
+                left: 0.5vw;
+                bottom: 1vh;
+                min-width: 180px;
+                max-width: 95vw;
+                padding: 0.7rem 0.7rem 0.7rem 0.7rem;
+            }
+            .paid-chat-message {
+                font-size: 0.98rem;
+                padding: 0.5rem 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -35,6 +152,7 @@
             <p class="subtitle">Advanced Recoil Control for Rainbow Six Siege</p>
             <div class="cta-buttons">
                 <a href="download.html" class="btn primary">Download Now</a>
+                <a href="paid.html" class="btn paid-cta-btn">Buy Laft Paid</a>
                 <a href="tutorial.html" class="btn secondary">Learn More</a>
             </div>
         </div>
@@ -58,6 +176,14 @@
             </div>
         </div>
     </main>
+
+    <!-- Paid Supporter Notification Card -->
+    <div class="paid-chat-notify-card" id="paidChatNotify">
+        <div class="paid-chat-message">
+            <span class="paid-chat-icon"><i class="fas fa-star"></i></span>
+            <span class="paid-chat-username">.waoh</span> <span class="paid-chat-action">bought lifetime <span class="paid-chat-amount">($25.00)</span></span>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -85,5 +211,40 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+    const paidChatMessages = [
+        {user: '.waoh', action: 'bought lifetime', amount: '$25.00'},
+        {user: 'lukeypooo.', action: 'bought lifetime', amount: '$25.00'},
+        {user: 'azzafsl', action: 'bought lifetime', amount: '$25.00'},
+        {user: 'ice_44444', action: 'bought 1 hour', amount: '$1.00'},
+        {user: 'Antd0ge#1451', action: 'bought lifetime', amount: '$25.00'},
+        {user: 'letmesuckyournipples', action: 'bought lifetime', amount: '$25.00'},
+        {user: 'neopoznannyy', action: 'bought lifetime', amount: '$25.00'}
+    ];
+    let paidChatIndex = 0;
+    const paidChatCard = document.getElementById('paidChatNotify');
+    const paidChatMsg = paidChatCard.querySelector('.paid-chat-message');
+    function showPaidChatMessage(idx) {
+        const msg = paidChatMessages[idx];
+        paidChatMsg.innerHTML = `<span class='paid-chat-icon'><i class='fas fa-star'></i></span><span class="paid-chat-username">${msg.user}</span> <span class="paid-chat-action">${msg.action} <span class='paid-chat-amount'>(${msg.amount})</span></span>`;
+        paidChatCard.classList.add('visible');
+    }
+    function hidePaidChatMessage() {
+        paidChatCard.classList.remove('visible');
+    }
+    function cyclePaidChatMessages() {
+        showPaidChatMessage(paidChatIndex);
+        setTimeout(() => {
+            hidePaidChatMessage();
+            setTimeout(() => {
+                paidChatIndex = (paidChatIndex + 1) % paidChatMessages.length;
+                cyclePaidChatMessages();
+            }, 600);
+        }, 3000);
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(cyclePaidChatMessages, 1200);
+    });
+    </script>
 </body>
 </html> 
