@@ -452,29 +452,15 @@
             margin-left: 0.2rem;
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #5865F2, #7289DA);
-            color: white;
-            border-radius: 50%;
-            text-decoration: none;
+
+        .discord-icon {
+            color: var(--color-magenta);
             font-size: 1.5rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
-        .social-links a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
-            background: linear-gradient(135deg, #7289DA, #5865F2);
+        .discord-icon:hover {
+            color: var(--color-magenta-light);
         }
         @media (max-width: 700px) {
             .settings-card {
@@ -483,11 +469,7 @@
                 right: 2vw;
                 top: 77px;
             }
-            .social-links a {
-                width: 40px;
-                height: 40px;
-                font-size: 1.3rem;
-            }
+
         }
     </style>
 </head>
@@ -501,7 +483,6 @@
                 <a href="index.html" class="active">Home</a>
                 <a href="tutorial.html">Tutorial</a>
                 <a href="download.html">Download</a>
-                <a href="paid.html">Paid</a>
                 <a href="tos.html">TOS</a>
                 <a id="settingsBtn" class="nav-link settings-btn" aria-label="Settings"><i class="fas fa-cog"></i></a>
             </div>
@@ -522,7 +503,6 @@
             <div class="cta-buttons">
                 <div class="cta-row">
                     <a href="download.html" class="btn primary">Download Now</a>
-                    <a href="paid.html" class="btn paid-cta-btn">Buy Laft Paid</a>
                     <a href="tutorial.html" class="btn secondary">Learn More</a>
                 </div>
                 <a href="https://buymeacoffee.com/safytools" class="btn donate-cta-btn" target="_blank" rel="noopener">Donate</a>
@@ -568,14 +548,14 @@
                 <a href="download.html">Download</a>
                 <a href="tos.html">TOS</a>
             </div>
-
-        </div>
-        <div class="footer-bottom">
-            <div class="social-links">
-                <a href="https://discord.gg/rMKpkQyPn9" target="_blank" rel="noopener" aria-label="Join our Discord">
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="https://discord.gg/rMKpkQyPn9" class="discord-icon" target="_blank" rel="noopener">
                     <i class="fab fa-discord"></i>
                 </a>
             </div>
+        </div>
+        <div class="footer-bottom">
             <p>Copyright © 2025 SafyTools</p>
         </div>
     </footer>

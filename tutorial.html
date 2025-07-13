@@ -176,6 +176,16 @@
         h3 + .troubleshooting-list {
             margin-top: 1rem;
         }
+
+        .discord-icon {
+            color: var(--color-magenta);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .discord-icon:hover {
+            color: var(--color-magenta-light);
+        }
     </style>
 </head>
 <body>
@@ -187,7 +197,6 @@
             <a href="index.html">Home</a>
             <a href="tutorial.html" class="active">Tutorial</a>
             <a href="download.html">Download</a>
-            <a href="paid.html">Paid</a>
             <a href="tos.html">TOS</a>
         </div>
     </nav>
@@ -329,7 +338,9 @@
             </div>
             <div class="footer-section">
                 <h4>Connect</h4>
-
+                <a href="https://discord.gg/rMKpkQyPn9" class="discord-icon" target="_blank" rel="noopener">
+                    <i class="fab fa-discord"></i>
+                </a>
             </div>
         </div>
         <div class="footer-bottom">
