@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laft Tutorial - User Guide</title>
+    <meta name="description" content="Learn how to install, use, and customize Laft recoil control for Rainbow Six Siege with this comprehensive user guide and tutorial.">
+    <meta name="keywords" content="laft tutorial, laft guide, recoil control setup, rainbow six siege settings, r6s recoil help, safytools, laft, laft recoil, rainbow six siege, r6s, recoil script">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="tutorial.html">
+    <meta property="og:title" content="Laft Tutorial - User Guide">
+    <meta property="og:description" content="Learn how to install, use, and customize Laft recoil control for Rainbow Six Siege with this comprehensive user guide.">
+    <meta property="og:image" content="image/LaftIcon.png">
+    <link rel="icon" type="image/png" href="image/LaftIcon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .tutorial-container {
+            max-width: 1000px;
+            margin: 8rem auto 4rem;
+            padding: 0 5%;
+        }
+
+        .tutorial-section {
+            background: var(--color-accent);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .tutorial-section h2 {
+            color: var(--color-magenta);
+            margin-bottom: 2rem;
+            font-size: 2.3rem;
+            text-align: center;
+            border-bottom: 2px solid var(--color-magenta-light);
+            padding-bottom: 1rem;
+        }
+
+        .tutorial-section h3 {
+            color: var(--color-magenta-light);
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-left: 4px solid var(--color-magenta);
+            padding-left: 1rem;
+        }
+        
+        .tutorial-section h4 {
+            color: var(--color-text);
+            background-color: rgba(255, 0, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            margin-top: 2rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+        }
+
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+            padding-left: 0;
+        }
+
+        .step-list > li::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--color-magenta);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .step-list li.no-major-step-number {
+            padding-left: 0.5rem !important;     
+        }
+        .step-list li.no-major-step-number::before {
+            display: none !important;           
+            content: none !important;             
+        }
+
+        .sub-step {
+            margin-left: 0.5rem;
+            margin-top: 0.8rem;
+            color: #bbb;
+            font-size: 0.95rem;
+            padding-left: 1rem;
+            border-left: 2px dotted rgba(255,255,255,0.2);
+        }
+        .sub-step + .sub-step {
+            margin-top: 0.5rem;
+        }
+
+        .note {
+            background: rgba(var(--color-magenta-rgb), 0.1);
+            border-left: 5px solid var(--color-magenta);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .note strong {
+            color: var(--color-magenta-light);
+        }
+
+        .troubleshooting-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.8rem;
+        }
+
+        .troubleshooting-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 2.2rem;
+            position: relative;
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        .troubleshooting-list li::before {
+            content: '⚠';
+            color: var(--color-magenta-light);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+
+        .instruction-list {
+            list-style: disc;     
+            padding-left: 1.5rem;     
+            margin-top: 0.8rem;
+            margin-left: 0.5rem;      
+            color: #ccc;         
+        }
+
+        .instruction-list li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .tutorial-section p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: #eee;
+        }
+
+        .tutorial-section a {
+            color: var(--color-magenta-light);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .tutorial-section a:hover {
+            text-decoration: underline;
+            color: var(--color-magenta);
+        }
+
+        :root {
+            --color-magenta-rgb: 255, 0, 255;
+        }
+
+        h3 + .troubleshooting-list {
+            margin-top: 1rem;
+        }
+
+        .discord-icon {
+            color: var(--color-magenta);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .discord-icon:hover {
+            color: var(--color-magenta-light);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span>LAFT</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="tutorial.html" class="active">Tutorial</a>
+            <a href="download.html">Download</a>
+            <a href="tos.html">TOS</a>
+        </div>
+    </nav>
+
+    <div class="tutorial-container">
+        <div class="tutorial-section">
+            <h2>Laft User Guide</h2>
+            
+            <h3>Installation Steps</h3>
+            <ol class="step-list">
+                <li>Download Laft
+                    <div class="sub-step">Visit the <a href="download.html">Download Page</a></div>
+                    <div class="sub-step">Download the Laft software package.</div>
+                </li>
+                <li>Extract the Application
+                    <div class="sub-step">Extract the downloaded file (e.g., a .zip or .rar) to a folder on your desired hard drive.</div>
+                </li>
+                <li>Run the Installer
+                    <div class="sub-step">Locate and run the installer (e.g., Laft-Setup-X.X.exe) <strong>as Administrator</strong>.</div>
+                    <div class="sub-step">When prompted by User Account Control (UAC), grant permission to make changes to your device.</div>
+                </li>
+                <li>Complete Setup
+                    <div class="sub-step">Accept the End User License Agreement (EULA). You can review it fully on our <a href="tos.html">Terms of Service</a> page.</div>
+                    <div class="sub-step">Follow the on-screen prompts to complete the installation process.</div>
+                </li>
+            </ol>
+
+            <h3>Using Laft</h3>
+            <h4>Initial Setup</h4>
+            <ol class="step-list">
+                <li>Ensure Rainbow Six Siege is running <strong>before</strong> starting Laft. This is crucial for proper functionality.</li>
+                <li>Open Laft. You may need to run it as Administrator if you encounter issues.</li>
+                <li>Enable the recoil feature:
+                    <div class="sub-step">Click the activation button, typically located in the bottom-right corner of the Laft interface.</div>
+                    <div class="sub-step">Alternatively, use the default keybind (usually F2) to toggle the recoil control on/off.</div>
+                </li>
+            </ol>
+
+            <h3>Adjust Recoil Settings</h3>
+            <ol class="step-list">
+                <li class="no-major-step-number">Configure Values:
+                    <div class="sub-step">Use the sliders provided in Laft to adjust Horizontal (X) and Vertical (Y) recoil values.</div>
+                    <div class="sub-step"><strong>Vertical Slider:</strong> Controls how much the software pulls down.
+                        <ul class="instruction-list">
+                            <li>If your aim goes too high (under-compensated), increase the Vertical value.</li>
+                            <li>If your aim goes too low (over-compensated), decrease the Vertical value.</li>
+                        </ul>
+                    </div>
+                    <div class="sub-step"><strong>Horizontal Slider:</strong> Controls side-to-side compensation.
+                        <ul class="instruction-list">
+                            <li>Adjust based on the specific weapon's horizontal drift.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>Testing & Refinement:
+                    <div class="sub-step">Load into the in-game Shooting Range in Rainbow Six Siege.</div>
+                    <div class="sub-step">Test your settings by firing at a wall. Observe the bullet pattern and make fine adjustments to the X/Y values in Laft until you achieve the desired control.</div>
+                </li>
+            </ol>
+
+            <div class="note">
+                <strong>Note:</strong> Optimal recoil settings are highly dependent on your in-game mouse sensitivity, DPI (Dots Per Inch) settings of your mouse, and individual weapon characteristics. Experiment to find what works best for you. It's recommended to configure settings for each operator/weapon you frequently use.
+            </div>
+
+            <h3>Saving and Managing Configurations</h3>
+            <h4>Preset Management</h4>
+            <ol class="step-list">
+                <li>Navigate to the 'Settings' or 'Presets' tab within Laft.</li>
+                <li class="no-major-step-number">Saving a Configuration:
+                    <div class="sub-step">After configuring your desired Horizontal and Vertical values, find the input field for preset names (often labeled 'Preset Name' or similar, might show 'NONE' by default).</div>
+                    <div class="sub-step">Enter a descriptive name for your configuration (e.g., "Ash_R4C_Holo").</div>
+                    <div class="sub-step">Click the 'Save Preset' button to store your current X/Y values under that name.</div>
+                </li>
+                <li class="no-major-step-number">Loading a Configuration:
+                    <div class="sub-step">Click on the preset dropdown menu (the one that might show 'NONE' or your last saved preset).</div>
+                    <div class="sub-step">Select your desired preset from the list.</div>
+                    <div class="sub-step">Click the 'Load Preset' button. The X/Y values should update to the saved configuration.</div>
+                </li>
+                <li class="no-major-step-number">Deleting a Configuration:
+                    <div class="sub-step">Select the preset you wish to delete from the dropdown menu.</div>
+                    <div class="sub-step">Click the 'Delete Preset' button. Confirm if prompted.</div>
+                </li>
+            </ol>
+
+            <h3>Customizing Keybinds</h3>
+            <ol class="step-list">
+                <li>Open the 'Keybinds' tab in Laft.</li>
+                <li>Select the action you wish to rebind. Click on the specific action you want to change.</li>
+                <li>Press the new key you want to assign to that action. The interface should update to reflect the new keybind.</li>
+            </ol>
+            
+            <div class="note">
+                <strong>Tip:</strong> Choose keybinds that are easy to reach and don't conflict with your in-game controls.
+            </div>
+
+            <h3>Troubleshooting Common Issues</h3>
+            <p>If the recoil feature isn't working as expected, try these common fixes:</p>
+            <ul class="troubleshooting-list">
+                <li>Ensure Laft is run as Administrator.</li>
+                <li>Confirm that Rainbow Six Siege was launched *before* Laft.</li>
+                <li>Verify the recoil feature is enabled within Laft (check the toggle button/keybind).</li>
+                <li>Ensure Horizontal and Vertical values in Laft are set appropriately (not zero if compensation is needed).</li>
+                <li>Check for conflicting software or overlays that might interfere with Laft.</li>
+                <li>Ensure your in-game resolution and aspect ratio settings are consistent.</li>
+            </ul>
+
+            <h4>Still Having Issues?</h4>
+            <p>If problems persist:</p>
+            <ol class="step-list">
+
+                <li>Navigate to the appropriate support channel (e.g., #bug-reports or #help).</li>
+                <li>Provide a detailed explanation of the issue, including:
+                    <div class="sub-step">What steps you took.</div>
+                    <div class="sub-step">What you expected to happen.</div>
+                    <div class="sub-step">What actually happened.</div>
+                    <div class="sub-step">Your in-game settings (sensitivity, resolution).</div>
+                </li>
+                <li>If possible, attach a short clip or screenshots demonstrating the problem. This greatly helps in diagnosing the issue.</li>
+            </ol>
+
+            <h3>Credits</h3>
+            <p>Laft Recoil Control is developed and maintained by SafyTools.</p>
+            <p>We appreciate our user community for their feedback and support!</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Laft</h4>
+                <p>Developed by SafyTools</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="tutorial.html">Tutorial</a>
+                <a href="download.html">Download</a>
+                <a href="tos.html">TOS</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="https://discord.gg/rMKpkQyPn9" class="discord-icon" target="_blank" rel="noopener">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 SafyTools</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
